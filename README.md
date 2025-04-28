@@ -10,6 +10,13 @@ The first step was to build a component for file upload. The one implemented is 
 To allow file uploads in the messages, we first need to use a model that supports it. And we also need to leverage the **experimental_attachment** feature in the useChat handleSubmit chatRequestOptions.
 It was also necessary to update the system's initial prompt to enable a more objective behavior in PII extraction.
 
+### Tool Usage
+**1.** Upload a file
+
+**2.** Insert a message like: "List the information you have from this document."
+
+**3.** Continue the chat with any other questions you may have based on the uploaded document
+
 ## Features
 - **Conversational AI Interface**: Upload a PDF or Image file and chat with the AI to analyze PII
 - **PII Detection**: Identify various types of personal information including:
