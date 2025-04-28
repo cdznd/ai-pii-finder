@@ -4,7 +4,9 @@ An AI-powered Personal Identifiable Information (PII) detection tool built with 
 This application provides a conversational interface to analyze and detect Personal Identifiable Information (PII) in text content. The tool leverages Google's Gemini 2.0 Flash model with the [Google Generative AI Provider](https://sdk.vercel.ai/providers/ai-sdk-providers/google-generative-ai.). And the project is deployed on [Vercel](https://vercel.com/).
 
 ### Technical Challenges and Development Process
-I started this project on top of the Supplier Search Tool. The implementation of a PII reader was very simple. The first step was to build a component for file upload. The one implemented is capable of uploading multiple files, but I decided to work with only one for now. I also added a new rule requiring the user to upload a file before trying to start a conversation with the model.
+I started this project on top of the Supplier Search Tool. The implementation of a PII reader was very simple. 
+The first step was to build a component for file upload. The one implemented is capable of uploading multiple files, but I decided to work with only one for now. I also added a new rule requiring the user to upload a file before trying to start a conversation with the model.
+
 To allow file uploads in the messages, we first need to use a model that supports it. In the implementation, we also need to leverage the **experimental_attachment** feature in the useChat handleSubmit chatRequestOptions.
 It was also necessary to update the system's initial prompt to enable a more objective behavior in PII extraction.
 
