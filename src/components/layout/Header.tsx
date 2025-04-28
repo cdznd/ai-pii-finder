@@ -33,7 +33,7 @@ const Header = () => {
               aria-hidden="true"
             />
             <div className="absolute right-0 mt-2 w-72 bg-white text-gray-800 text-sm p-4 rounded-lg shadow-lg z-20 transition-all duration-200">
-              <div className="font-medium text-base mb-4 text-purple-800"><span className='font-bold'>About this tool</span></div>
+              <div className="font-medium text-base mb-4 text-[#2D68BB]"><span className='font-bold'>About this tool</span></div>
               
               <div className="space-y-2">
                 <p className="flex items-center">
