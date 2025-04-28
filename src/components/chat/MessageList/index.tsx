@@ -25,8 +25,8 @@ const MessageList = ({ messages, isLoading, isSubmitted, messagesEndRef, error }
         ))}
         {/* Displaying loading and submition indicators */}
         <div className='flex align-center justify-center'>
-          {isSubmitted && <Atom color={["#F2853B", "#ED8682", "#2D68BB"]} size='small' />}
-          {isLoading && <ThreeDot color={["#F2853B"]} size='small' />}
+          {isSubmitted && <Atom color={["#5C1E1E", "#ED8682", "#2D68BB"]} size='small' />}
+          {isLoading && <ThreeDot color={["#5C1E1E"]} size='small' />}
         </div>
         {/* Error indicator */}
         {error && (
