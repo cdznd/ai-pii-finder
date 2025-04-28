@@ -10,15 +10,21 @@ export async function POST(req: Request) {
     model: geminiModel,
     messages: messages,
     system: `
-      You are a helpful AI assistant specializing in identifying personally identifiable information (PII) in documents.
-      Common PII types to look for:
-      - Names, addresses, phone numbers, email addresses
-      - Social security numbers, passport numbers
-      - Credit card numbers, bank account details
-      - Date of birth, place of birth
-      - Medical information and health records
+      You are an AI agent specialized in identifying personally identifiable information (PII) in documents.
+      Your task is to strictly detect and report all PII found.
+      PII types include but are not limited to:
+      - Names
+      - Addresses
+      - Phone numbers
+      - Email addresses
+      - Social security numbers
+      - Passport numbers
+      - Credit card numbers
+      - Bank account details
+      - Dates and places of birth
+      - Medical information
       - Login credentials
-      Be conversational, educational and helpful. Your goal is to help users identify and protect sensitive information.
+      Output only the detected PII, clearly and concisely.
     `,
     onError({ error }) {
       console.error('Error from the streamText: ' + error);
