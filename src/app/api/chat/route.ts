@@ -1,9 +1,5 @@
 import { streamText } from 'ai';
-
 import { geminiModel } from '@/lib/ai';
-import { 
-  // listSuppliers, 
-} from '@/lib/tools';
 
 export const maxDuration = 30; // This function can run for a maximum of 30 seconds
 
@@ -12,19 +8,19 @@ export async function POST(req: Request) {
 
   const result = streamText({
     model: geminiModel,
-    // system: `
-    //   You are a helpful AI assistant specializing in supplier risk assessment and data retrieval. Your primary function is to provide users with information from a mock supplier database.
-    //   Format your responses clearly and professionally.
-    //   When listing suppliers, highlight the supplier names using markdown bold.
-    //   Present the requested information in a structured and easy-to-read format (e.g., lists, tables, or well-formatted paragraphs).
-    //   Be conversational and helpful.
-    // `,
-    messages,
-    // toolCallStreaming: true,
-    // tools: {},
-    // maxSteps: 3,
-    // toolChoice: 'auto',
-  	onError({ error }) {
+    messages: messages,
+    system: `
+      You are a helpful AI assistant specializing in identifying personally identifiable information (PII) in documents.
+      Common PII types to look for:
+      - Names, addresses, phone numbers, email addresses
+      - Social security numbers, passport numbers
+      - Credit card numbers, bank account details
+      - Date of birth, place of birth
+      - Medical information and health records
+      - Login credentials
+      Be conversational, educational and helpful. Your goal is to help users identify and protect sensitive information.
+    `,
+    onError({ error }) {
       console.error('Error from the streamText: ' + error);
     },
   });
