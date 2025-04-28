@@ -150,8 +150,8 @@ const MessageComponent = ({ message, index }: MessageProps) => {
   const isUserMessage = message.role === 'user';
   const messageClasses = `p-4 rounded-lg transition-all duration-300 ease-in-out animate-fade-in backdrop-blur-sm
     ${isUserMessage 
-      ? 'bg-[#2D68BB]/70 border-l-4 border-[#2D68BB] ml-auto text-white'
-      : 'bg-[#ED8682]/70 border-l-4 border-[#ED8682] mr-auto text-white'
+      ? 'bg-[#2D68BB]/40 border-l-4 border-[#2D68BB] ml-auto text-white'
+      : 'bg-[#ED8682]/40 border-l-4 border-[#ED8682] mr-auto text-white'
     } max-w-[85%] shadow-md hover:shadow-lg transition-shadow relative`;
 
   return (
