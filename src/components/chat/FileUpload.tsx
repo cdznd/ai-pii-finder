@@ -70,7 +70,7 @@ const FileUpload = ({
     e.preventDefault();
   };
   
-  const handleDropAreaClick = (e: React.MouseEvent) => {
+  const handleDropAreaClick = () => {
     fileInputRef.current?.click();
   };
   
