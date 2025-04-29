@@ -3,22 +3,26 @@ An AI-powered Personal Identifiable Information (PII) detection tool built with 
 ## Overview
 This application provides a conversational interface for analyzing and detecting Personally Identifiable Information (PII) in text content from images and PDF files. The tool leverages Google's Gemini 2.0 Flash model with the [Google Generative AI Provider](https://sdk.vercel.ai/providers/ai-sdk-providers/google-generative-ai.). And the project is deployed on [Vercel](https://vercel.com/).
 
+<p align="center">
+  <img src="public/project_screenshots/ss1.png" alt="" width="800">
+</p>
+
 ### Technical Challenges and Development Process
 I started this project on top of the [Supplier Risk AI Search Tool](https://github.com/cdznd/supplier-risk-ai-search-tool). The implementation of a PII reader was very simple. 
-The first step was to build a component for file upload. The one implemented is capable of uploading multiple files, but I decided to work with only one for now. I also added a new rule requiring the user to upload a file before trying to start a conversation with the model.
+The first step was to build a component for **file upload**. The one implemented is capable of uploading multiple files, but I decided to work with only one for now. I also added a new rule requiring the user to upload a file before trying to start a conversation with the model.
 
-To allow file uploads in the messages, we first need to use a model that supports it. And we also need to leverage the **experimental_attachment** feature in the useChat handleSubmit chatRequestOptions.
-It was also necessary to update the system's initial prompt to enable a more objective behavior in PII extraction.
+To allow file uploads in the messages, we first need to use a model that supports it. And we also need to leverage the **experimental_attachment** feature in the useChat handleSubmit chatRequestOptions with a FileList, [example here](https://github.com/cdznd/ai-pii-finder/blob/main/src/app/page.tsx#L39).
+It was also necessary to update the [system's initial prompt](https://github.com/cdznd/ai-pii-finder/blob/main/src/app/api/chat/route.ts#L12) to enable a more objective behavior in PII extraction.
 
 ### Tool Usage
 **1.** Upload a file
 
-**2.** Insert a message like: "List the information you have from this document."
+**2.** Insert a message like: "List the information visible in this document."
 
 **3.** Continue the chat with any other questions you may have based on the uploaded document
 
 ## Features
-- **Conversational AI Interface**: Upload a PDF or Image file and chat with the AI to analyze PII
+- **Conversational AI Interface**: Upload a **PDF** or **Image**(JPEG, PNG) file and chat with the AI to analyze PII
 - **PII Detection**: Identify various types of personal information including:
   - Names
   - Email addresses
@@ -94,13 +98,3 @@ src/
 │   ├── ai.ts           # AI model configuration
 └── styles/             # Global styles
 ```
-
-## Screenshots
-
-<p align="center">
-  <table>
-    <tr>
-      <td><img src="public/project_screenshots/ss1.png" alt="" width="800"></td>
-    </tr>
-  </table>
-</p>
